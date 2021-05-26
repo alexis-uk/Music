@@ -1,0 +1,36 @@
+<mat-tab-group>
+  <mat-tab label="Music Listings">
+    <mat-list>
+      <mat-card class="example-card" *ngFor="let song of songs">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ song.title }} {{ song.visited?'*':'' }}</mat-card-title>
+          <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="/assets/song-icon.png" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{ song.artist.bio }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button [routerLink]="['/details', song.songId]">Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="My Songs">
+    <mat-list>
+      <mat-card class="example-card" *ngFor="let song of buyedSongs">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ song.title }}</mat-card-title>
+          <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button [routerLink]="['/details', song.songId]">Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-list>
+  </mat-tab>
+</mat-tab-group>

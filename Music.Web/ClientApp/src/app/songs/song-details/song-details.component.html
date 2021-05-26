@@ -1,0 +1,23 @@
+<ng-container *ngIf="song">
+  <h2>Song Details</h2>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ song.title }}</mat-card-title>
+      <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/song-icon.png" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{ song.artist.bio }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [routerLink]="['/']">Back</button>
+      &nbsp;
+      <!-- <a [routerLink]="['/']" (click)="buySong(song.songId)">Buy</a> -->
+      <!-- <a [routerLink]="['/']" (click)="openDialog(song.songId)">Buy</a> -->
+      <button mat-raised-button (click)="openDialog(song.songId)">Buy</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
